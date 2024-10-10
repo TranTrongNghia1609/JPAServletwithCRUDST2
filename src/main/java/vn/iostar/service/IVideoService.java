@@ -17,7 +17,9 @@ public interface IVideoService {
     List<Video> findAll();
 
 
-    Video findById(int videoid);
+    Video findById(String videoid);
+
+    Video findByidCategory(int cateid);
 
 
     void insert(Video video);
@@ -26,7 +28,7 @@ public interface IVideoService {
     void update(Video video);
 
 
-    void delete(int videoid) throws Exception;
+    void delete(String videoid) throws Exception;
 
     List<Video> findByIdCategory(int categoryid);
 }

@@ -61,10 +61,17 @@ public class VideoDaoImpl implements IVideoDao {
     }
 
     @Override
-    public Video findById(int videoid) {
+    public Video findById(String videoid) {
         EntityManager enma = JPAConfig.getEntityManager();
         Video video = enma.find(Video.class, videoid);
 
+        return video;
+    }
+
+    @Override
+    public Video findByidCategory(int cateid) {
+        EntityManager enma = JPAConfig.getEntityManager();
+        Video video = enma.find(Video.class, cateid);
         return video;
     }
 
@@ -107,7 +114,7 @@ public class VideoDaoImpl implements IVideoDao {
     }
 
     @Override
-    public void delete(int videoid) throws Exception {
+    public void delete(String videoid) throws Exception {
         // TODO Auto-generated method stub
         EntityManager enma = JPAConfig.getEntityManager();
         EntityTransaction trans = enma.getTransaction();

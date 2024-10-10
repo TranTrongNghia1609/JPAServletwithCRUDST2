@@ -14,12 +14,16 @@
     <label for="Description">Description:</label><br>
     <input type="text" id="description" name="description"><br>
     <label for="categoryid">CategoryID:</label><br>
-    <input type="text" id="categoryid" name="categoryid" value="${video.categoryid}"><br>
-
+    <input type="text" id="categoryid" name="categoryid" value="${categoryid}">
+    <br>
     <label for="poster">Poster: </label><br>
-    <div style="width:100px; height:100px">
-        <img alt="images" id="images" src="" width="120px" height="120px" />
-    </div><br>
+    <c:if test="${video.poster.substring(0,5) != 'https'}">
+        <c:url value="/image?fname=${video.poster }" var="imgUrl"></c:url>
+    </c:if>
+    <c:if test="${video.poster.substring(0,5) == 'https'}">
+        <c:url value="${video.poster }" var="imgUrl"></c:url>
+    </c:if>
+    <img id="imagess" height="150" width="200" src="${imgUrl}" />
     <br>
     Nhập link: <input type="text" id="poster1" name="poster1"><br>
     Hoặc tải file:
