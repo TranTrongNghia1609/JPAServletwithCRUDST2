@@ -22,11 +22,12 @@
         <th>CategoryID</th>
         <th>Action</th>
     </tr>
-    <c:forEach items="${listvideo}" var="video" varStatus="STT">
+    <a href="<c:url value='/admin/video/add?categoryid=${id}'/>">Add video</a>
+    <%--<c:forEach items="${listvideo}" var="video" varStatus="STT">
         <c:if test="${STT.index == 0}">
-            <a href="<c:url value='/admin/video/add?categoryid=${video.category.categoryId}'/>">Add video</a>
+
         </c:if>
-    </c:forEach>
+    </c:forEach>--%>
     <c:forEach items="${listvideo}" var="video" varStatus="STT">
     <tr>
         <td>${STT.index+1}</td>

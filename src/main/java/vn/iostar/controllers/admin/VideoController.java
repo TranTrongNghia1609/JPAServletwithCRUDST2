@@ -38,6 +38,7 @@ public class VideoController extends HttpServlet {
             int id = Integer.parseInt(req.getParameter("categoryid"));
             List<Video> videos = videoService.findByIdCategory(id);
             req.setAttribute("listvideo", videos);
+            req.setAttribute("id", id);
             req.getRequestDispatcher("/views/admin/video-list.jsp").forward(req, resp);
         } else if (url.contains("add")) {
             int id = Integer.parseInt(req.getParameter("categoryid"));
